@@ -3,6 +3,7 @@ extends "res://Scripts/tool.gd"
 @export var _drillHole : PackedScene
 
 func Action():
+	super.Action()
 	
 	var result = super.ShootRay()
 	if result:
@@ -14,6 +15,7 @@ func Action():
 		hole.global_position = result.position;
 
 
+## Transfer to Util Class
 func align_with_z(xform, new_z):
 	xform.basis.z = new_z
 	xform.basis.x = -xform.basis.y.cross(new_z)

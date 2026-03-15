@@ -1,4 +1,4 @@
-extends Node3D
+extends "res://Scripts/Equipable.gd"
 
 @export var _orientationSpace : Node3D
 @export_flags_3d_physics var _collisionMask = (1 << 1 - 1) 
@@ -18,7 +18,8 @@ func _process(_delta: float) -> void:
 		Action();
 
 func Action():
-	pass
+	if(!_equipped):
+		pass
 	
 func ShootRay() -> Dictionary:
 	var space_state = get_world_3d().direct_space_state

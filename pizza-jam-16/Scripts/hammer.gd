@@ -5,6 +5,7 @@ extends "res://Scripts/tool.gd"
 var _buildPoints : Array[Dictionary]
 
 func Action():
+	super.Action()
 	var result = super.ShootRay()
 	
 	if result:

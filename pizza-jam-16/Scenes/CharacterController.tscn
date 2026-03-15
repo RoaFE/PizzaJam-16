@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://barytrlefu27w" path="res://Scripts/CameraOrbit.gd" id="1_p0fx7"]
 [ext_resource type="Script" uid="uid://cok4ye05xpoky" path="res://Scripts/Player.gd" id="1_t05wo"]
-[ext_resource type="Script" uid="uid://c8flo1dpk04ir" path="res://Scripts/Drill.gd" id="2_fhf2m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3odk"]
 radius = 0.05
@@ -21,12 +20,6 @@ shape = SubResource("CapsuleShape3D_t3odk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1767074750]
 mesh = SubResource("CapsuleMesh_t05wo")
-
-[node name="InputSpot" type="Node3D" parent="MeshInstance3D" unique_id=464320486]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0)
-
-[node name="Drill" type="Node3D" parent="MeshInstance3D/InputSpot" unique_id=917216434]
-script = ExtResource("2_fhf2m")
 
 [node name="Orbit" type="Node3D" parent="." unique_id=1798830263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
