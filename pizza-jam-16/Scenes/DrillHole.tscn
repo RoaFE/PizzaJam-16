@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bmp6aynjw31j7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dn3s2"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nsew8"]
+material = SubResource("StandardMaterial3D_dn3s2")
+size = Vector3(0.02, 0.02, 0.05)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dn3s2"]
+radius = 0.13174143
+
+[node name="DrillHole" type="Node3D" unique_id=463291664]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1085714444]
+mesh = SubResource("BoxMesh_nsew8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1902801693]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1075313890]
+shape = SubResource("SphereShape3D_dn3s2")
