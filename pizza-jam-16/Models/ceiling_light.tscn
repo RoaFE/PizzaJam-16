@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://das8eynhgf436"]
+
+[ext_resource type="PackedScene" uid="uid://kinein287loo" path="res://Models/CeilingLight.glb" id="1_l52lb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmolj"]
+cull_mode = 2
+
+[node name="CeilingLight" unique_id=770346741 instance=ExtResource("1_l52lb")]
+
+[node name="Cylinder" parent="." index="1" unique_id=1783867622]
+surface_material_override/0 = SubResource("StandardMaterial3D_dmolj")

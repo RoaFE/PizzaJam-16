@@ -1,9 +1,11 @@
 @abstract
 class_name Interactable
 
-extends Node3D
+extends PhysicsBody3D
 
 @export var _oneShot : bool = false
+
+@export var _interactMessage : String
 
 var _used : bool = false
 
@@ -12,3 +14,8 @@ func Interact():
 	if(_oneShot):
 		_used = true;
 	pass
+
+func GetMessage() -> String :
+	if(_used):
+		return ""
+	return _interactMessage

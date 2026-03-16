@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cb208wkproylj" path="res://Scripts/Interactor.gd" id="1_cr4d8"]
 
-[node name="Node3D" type="Node3D" unique_id=720486732]
+[node name="Interactor" type="Node3D" unique_id=720486732 node_paths=PackedStringArray("_rayCast")]
 script = ExtResource("1_cr4d8")
+_rayCast = NodePath("RayCast3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1105856778]
 target_position = Vector3(0, 0, -1)

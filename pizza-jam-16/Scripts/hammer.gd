@@ -8,6 +8,8 @@ var _buildPoints : Array[Dictionary]
 
 @export var _indicator : Node3D
 
+signal ShelfBuilt()
+
 func _physics_process(_delta: float) -> void:
 	_rayCast.basis = _orientationSpace.basis
 	if(_rayCast.is_colliding() && _rayCast.get_collider() is CollisionObject3D && _equipped):
@@ -23,7 +25,7 @@ func Action():
 	var result = super.ShootRay()
 	
 	if result:
-		if(_buildPoints.find(result) != -1):
+		if(_buildPoints.size() > 0 && _buildPoints[0].collider_id == result.collider_id):
 			return
 		_buildPoints.push_back(result)
 		if(_buildPoints.size() == 2):
@@ -37,9 +39,6 @@ func Build():
 	var pos0 : Vector3 = (_buildPoints[0].collider as Node3D).global_position;
 	var pos1 : Vector3 = (_buildPoints[1].collider as Node3D).global_position;
 	
-	print(_buildPoints[0].collider_id)
-	print(_buildPoints[1].collider_id)
-	
 	var midPoint : Vector3 = (pos0 + pos1) / 2
 	var dist = (pos0 - pos1).length()
 	
@@ -48,13 +47,20 @@ func Build():
 	get_tree().root.add_child(builtThing)
 	
 	var left = (pos0 - pos1).normalized() 
-	var forward = (_buildPoints[0].collider.basis.z + _buildPoints[1].collider.basis.z).normalized() 
+	print(left)
+	var forward = (_buildPoints[0].collider.global_basis.z + _buildPoints[1].collider.global_basis.z).normalized() 
+	print(forward)
 	var up = left.cross(forward).normalized();
 	if(up.y < 0):
 		up = -up
+	print(up)
 		
 	
 	builtThing.global_position = midPoint
-	builtThing.basis = Basis(left,up,forward)
+	builtThing.global_basis = Basis(left,up,forward)
 	builtThing.scale.x = min(2,dist);
+	_buildPoints[0].collider.queue_free()
+	_buildPoints[1].collider.queue_free()
 	_buildPoints.clear()
+	ShelfBuilt.emit()
+	

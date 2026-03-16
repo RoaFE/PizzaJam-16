@@ -34,7 +34,7 @@ func _physics_process(_delta: float) -> void:
 func align_with_z(xform, new_z):
 	xform.basis.z = new_z
 	xform.basis.y = Vector3(0,1,0)
-	xform.basis.x = -xform.basis.y.cross(new_z)
+	xform.basis.x = xform.basis.y.cross(new_z)
 	xform.basis = xform.basis.orthonormalized()
 	return xform
 		

@@ -4,6 +4,7 @@ extends Node3D
 
 var _curIntercatble : Interactable
 
+signal InteractMessage(message : String)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,8 +12,10 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if(_rayCast.is_colliding()):
 		var object = _rayCast.get_collider()
-		if object is CollisionObject3D and object.get_parent_node_3d() is Interactable:
-			EvaluateInteractable(object.get_parent_node_3d())
+		if object is CollisionObject3D and object is Interactable:
+			EvaluateInteractable(object)
+	else:
+		EvaluateInteractable(null)
 	if(Input.is_action_just_pressed("interact") && _curIntercatble != null):
 		_curIntercatble.Interact();
 			
@@ -24,3 +27,10 @@ func EvaluateInteractable(interactable : Interactable):
 		#clear up
 		_curIntercatble = null
 	_curIntercatble = interactable
+	var message : String = ""
+	if(_curIntercatble != null):
+		message = _curIntercatble.GetMessage()
+	InteractMessage.emit(message)
+
+	
+	

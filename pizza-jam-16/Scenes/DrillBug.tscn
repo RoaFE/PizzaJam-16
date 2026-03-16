@@ -2,25 +2,57 @@
 
 [ext_resource type="PackedScene" uid="uid://csu41vcu1olum" path="res://Scenes/CharacterController.tscn" id="1_b8i1x"]
 [ext_resource type="Script" uid="uid://bme0x1f1xvqs4" path="res://Scripts/Inventory.gd" id="2_ekfui"]
+[ext_resource type="PackedScene" uid="uid://cblv7a4eqy7s8" path="res://Models/DrillBug.glb" id="3_50qdq"]
 [ext_resource type="PackedScene" uid="uid://dvap6vxfbbjyc" path="res://Scenes/DrillTool.tscn" id="3_pmbcc"]
 [ext_resource type="PackedScene" uid="uid://bac4ho8vi50nr" path="res://Scenes/HammerTool.tscn" id="4_jrf37"]
+[ext_resource type="PackedScene" uid="uid://bbopbtejiiyvm" path="res://Scenes/Interactor.tscn" id="5_jrf37"]
+[ext_resource type="PackedScene" uid="uid://colarqmwbcobc" path="res://Models/Drill.glb" id="7_snn4w"]
+[ext_resource type="PackedScene" uid="uid://b88klw8ys620u" path="res://Models/Hammer.glb" id="8_h4tam"]
 
-[node name="Char" unique_id=2034992785 instance=ExtResource("1_b8i1x")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_snn4w"]
+radius = 0.033691406
+height = 0.14711913
+
+[node name="Char" unique_id=2034992785 node_paths=PackedStringArray("_model") instance=ExtResource("1_b8i1x")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 2
+_speed = 2.0
+_jump_velocity = 2.0
+_model = NodePath("DrillBug")
 
-[node name="ItemSlot" type="Node3D" parent="CollisionShape3D" parent_id_path=PackedInt32Array(1034918182) index="0" unique_id=2086904975]
+[node name="CollisionShape3D" parent="." index="0" unique_id=1034918182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.017407224, 0)
+shape = SubResource("CapsuleShape3D_snn4w")
+
+[node name="ItemSlot" type="Node3D" parent="CollisionShape3D" index="0" unique_id=2086904975]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0)
 
-[node name="InputSpot" type="Node3D" parent="MeshInstance3D" parent_id_path=PackedInt32Array(1767074750) index="0" unique_id=1957297664 node_paths=PackedStringArray("_items")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0)
+[node name="MeshInstance3D" parent="." index="1" unique_id=1767074750]
+visible = false
+
+[node name="InputSpot" type="Node3D" parent="." index="2" unique_id=1957297664 node_paths=PackedStringArray("_items")]
 script = ExtResource("2_ekfui")
 _items = [NodePath("Drill"), NodePath("Hammer")]
 
-[node name="Drill" parent="MeshInstance3D/InputSpot" index="0" unique_id=690692289 node_paths=PackedStringArray("_orientationSpace") instance=ExtResource("3_pmbcc")]
-_orientationSpace = NodePath("../../../Orbit")
+[node name="Drill" parent="InputSpot" index="0" unique_id=690692289 node_paths=PackedStringArray("_orientationSpace") instance=ExtResource("3_pmbcc")]
+_orientationSpace = NodePath("../../Orbit")
 
-[node name="Hammer" parent="MeshInstance3D/InputSpot" index="1" unique_id=1104226804 node_paths=PackedStringArray("_orientationSpace") instance=ExtResource("4_jrf37")]
-_orientationSpace = NodePath("../../../Orbit")
+[node name="Hammer" parent="InputSpot" index="1" unique_id=1104226804 node_paths=PackedStringArray("_orientationSpace") instance=ExtResource("4_jrf37")]
+_orientationSpace = NodePath("../../Orbit")
 
-[node name="Orbit" parent="." index="2" unique_id=1798830263]
+[node name="Orbit" parent="." index="3" unique_id=1798830263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="Interactor" parent="Orbit" index="0" unique_id=720486732 instance=ExtResource("5_jrf37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="Camera3D" parent="Orbit" index="1" unique_id=1436450834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.1, 0.36)
+
+[node name="DrillBug" parent="." index="4" unique_id=1684587687 instance=ExtResource("3_50qdq")]
+
+[node name="Drill" parent="DrillBug" index="12" unique_id=1356349251 instance=ExtResource("7_snn4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058247447, -0.002387425, -0.032172706)
+
+[node name="Hammer" parent="DrillBug" index="13" unique_id=693762726 instance=ExtResource("8_h4tam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056744076, 0.025668167, -0.03378947)

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://do1blbwdqe6ea"]
+
+[ext_resource type="PackedScene" uid="uid://dm2gwfoy1ujmx" path="res://Models/Shelf.glb" id="1_gekti"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0wgw"]
+albedo_color = Color(0.25, 0.13808334, 0.052499995, 1)
+
+[node name="Shelf" unique_id=1575999734 instance=ExtResource("1_gekti")]
+
+[node name="Cube" parent="." index="0" unique_id=262753827]
+surface_material_override/0 = SubResource("StandardMaterial3D_x0wgw")
