@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://57kqhur3tcgo" path="res://Scenes/DrillBug.tscn" id="1_tt30a"]
 [ext_resource type="PackedScene" uid="uid://pmb805m8ig1g" path="res://Models/coffee_table.tscn" id="2_1ey7h"]
 [ext_resource type="PackedScene" uid="uid://car7dxocdhvn1" path="res://Scenes/CeilingLightBody.tscn" id="2_o1ld7"]
+[ext_resource type="PackedScene" uid="uid://c4lykqi2mmtff" path="res://Models/Tv_stand.glb" id="4_lxycn"]
+[ext_resource type="PackedScene" uid="uid://drneajmvokxfr" path="res://Models/Tv.glb" id="5_vqw7c"]
+[ext_resource type="PackedScene" uid="uid://h27ux8wkgdp7" path="res://Models/Bookcase.glb" id="6_86xni"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j0o1r"]
 
@@ -95,4 +98,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.153332, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5461254, 0)
 
 [node name="CoffeeTable" parent="." unique_id=546720682 instance=ExtResource("2_1ey7h")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.0313349, 0.016055286, -0.91552794)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5955112, 0.016055286, -0.752245)
+
+[node name="Tv_stand" parent="." unique_id=1550441611 instance=ExtResource("4_lxycn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.6377861, 1.2808062, -2.0528393)
+
+[node name="Tv" parent="." unique_id=1667503493 instance=ExtResource("5_vqw7c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.6465416, 1.2716846, -2.0321107)
+
+[node name="Bookcase" parent="." unique_id=1716170696 instance=ExtResource("6_86xni")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 3.5327098, 0.79837203, 2.2708676)
+
+[node name="Bookcase2" parent="." unique_id=918362285 instance=ExtResource("6_86xni")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.6592073, 0.79837203, 2.2708676)

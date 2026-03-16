@@ -7,7 +7,7 @@ albedo_color = Color(0.2, 0.2, 0.2, 1)
 material = SubResource("StandardMaterial3D_dn3s2")
 top_radius = 0.01
 bottom_radius = 0.01
-height = 0.005
+height = 0.001
 radial_segments = 8
 rings = 1
 
