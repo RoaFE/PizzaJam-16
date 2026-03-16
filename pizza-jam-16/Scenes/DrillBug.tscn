@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://57kqhur3tcgo"]
 
 [ext_resource type="PackedScene" uid="uid://csu41vcu1olum" path="res://Scenes/CharacterController.tscn" id="1_b8i1x"]
-[ext_resource type="Script" uid="uid://c8flo1dpk04ir" path="res://Scripts/Drill.gd" id="2_b8i1x"]
-[ext_resource type="Script" uid="uid://bme0x1f1xvqs4" path="res://Scenes/Inventory.gd" id="2_ekfui"]
+[ext_resource type="Script" uid="uid://bme0x1f1xvqs4" path="res://Scripts/Inventory.gd" id="2_ekfui"]
+[ext_resource type="PackedScene" uid="uid://dvap6vxfbbjyc" path="res://Scenes/DrillTool.tscn" id="3_pmbcc"]
+[ext_resource type="PackedScene" uid="uid://bac4ho8vi50nr" path="res://Scenes/HammerTool.tscn" id="4_jrf37"]
 
 [node name="Char" unique_id=2034992785 instance=ExtResource("1_b8i1x")]
 collision_layer = 2
@@ -10,12 +11,16 @@ collision_layer = 2
 [node name="ItemSlot" type="Node3D" parent="CollisionShape3D" parent_id_path=PackedInt32Array(1034918182) index="0" unique_id=2086904975]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0)
 
-[node name="InputSpot" type="Node3D" parent="MeshInstance3D" parent_id_path=PackedInt32Array(1767074750) index="0" unique_id=1957297664]
+[node name="InputSpot" type="Node3D" parent="MeshInstance3D" parent_id_path=PackedInt32Array(1767074750) index="0" unique_id=1957297664 node_paths=PackedStringArray("_items")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0)
 script = ExtResource("2_ekfui")
+_items = [NodePath("Drill"), NodePath("Hammer")]
 
-[node name="Drill" type="Node3D" parent="MeshInstance3D/InputSpot" index="0" unique_id=890752707]
-script = ExtResource("2_b8i1x")
+[node name="Drill" parent="MeshInstance3D/InputSpot" index="0" unique_id=690692289 node_paths=PackedStringArray("_orientationSpace") instance=ExtResource("3_pmbcc")]
+_orientationSpace = NodePath("../../../Orbit")
+
+[node name="Hammer" parent="MeshInstance3D/InputSpot" index="1" unique_id=1104226804 node_paths=PackedStringArray("_orientationSpace") instance=ExtResource("4_jrf37")]
+_orientationSpace = NodePath("../../../Orbit")
 
 [node name="Orbit" parent="." index="2" unique_id=1798830263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

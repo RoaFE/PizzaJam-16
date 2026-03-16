@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bac4ho8vi50nr"]
+
+[ext_resource type="Script" uid="uid://dvc5ij22qj2rc" path="res://Scripts/hammer.gd" id="1_1s4de"]
+[ext_resource type="PackedScene" uid="uid://cuewm1i20c650" path="res://Scenes/shelf.tscn" id="2_3d236"]
+[ext_resource type="Material" uid="uid://capg7rn487e6j" path="res://Materials/Indicator.tres" id="3_3d236"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t28vx"]
+material = ExtResource("3_3d236")
+size = Vector3(0.05, 0.05, 0.05)
+
+[node name="Hammer" type="Node3D" unique_id=1104226804 node_paths=PackedStringArray("_rayCast", "_indicator")]
+script = ExtResource("1_1s4de")
+_buildable = ExtResource("2_3d236")
+_rayCast = NodePath("RayCast3D")
+_indicator = NodePath("MeshInstance3D")
+_collisionMask = 4
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1867502713]
+target_position = Vector3(0, 0, -1)
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1592066759]
+mesh = SubResource("BoxMesh_t28vx")

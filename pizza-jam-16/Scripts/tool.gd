@@ -19,7 +19,7 @@ func _process(_delta: float) -> void:
 
 func Action():
 	if(!_equipped):
-		pass
+		return
 	
 func ShootRay() -> Dictionary:
 	var space_state = get_world_3d().direct_space_state

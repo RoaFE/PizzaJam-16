@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dvap6vxfbbjyc"]
+
+[ext_resource type="Script" uid="uid://c8flo1dpk04ir" path="res://Scripts/Drill.gd" id="1_mko04"]
+[ext_resource type="PackedScene" uid="uid://bmp6aynjw31j7" path="res://Scenes/DrillHole.tscn" id="2_j8xhm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mko04"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0.9833336, 1, 0.19607843)
+
+[sub_resource type="SphereMesh" id="SphereMesh_j8xhm"]
+material = SubResource("StandardMaterial3D_mko04")
+radius = 0.05
+height = 0.1
+
+[node name="Drill" type="Node3D" unique_id=690692289 node_paths=PackedStringArray("_rayCast", "_indicator")]
+script = ExtResource("1_mko04")
+_drillHole = ExtResource("2_j8xhm")
+_rayCast = NodePath("RayCast3D")
+_indicator = NodePath("MeshInstance3D")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=808189576]
+target_position = Vector3(0, 0, -1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=332538160]
+mesh = SubResource("SphereMesh_j8xhm")
