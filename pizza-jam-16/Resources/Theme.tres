@@ -1,6 +1,43 @@
 [gd_resource type="Theme" format=3 uid="uid://c4ith8oq0rye6"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xaj8b"]
+bg_color = Color(0.5019608, 0.72156864, 0.47058824, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpcpn"]
+bg_color = Color(0.26666668, 0.20784314, 0.3647059, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twqg6"]
+bg_color = Color(0.39607844, 0.5529412, 0.47058824, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmxg5"]
+bg_color = Color(0.30588236, 0.4, 0.4745098, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 16
+
 [resource]
+Button/font_sizes/font_size = 45
+Button/styles/hover = SubResource("StyleBoxFlat_xaj8b")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_kpcpn")
+Button/styles/normal = SubResource("StyleBoxFlat_twqg6")
+Button/styles/pressed = SubResource("StyleBoxFlat_vmxg5")
 Label/font_sizes/font_size = 30
 RichTextLabel/font_sizes/bold_font_size = 30
 RichTextLabel/font_sizes/bold_italics_font_size = 30
