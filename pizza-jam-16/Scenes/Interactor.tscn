@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbopbtejiiyvm"]
 
 [ext_resource type="Script" uid="uid://cb208wkproylj" path="res://Scripts/Interactor.gd" id="1_cr4d8"]
+[ext_resource type="Theme" uid="uid://c4ith8oq0rye6" path="res://Resources/Theme.tres" id="2_1y06w"]
 
 [node name="Interactor" type="Node3D" unique_id=720486732 node_paths=PackedStringArray("_rayCast")]
 script = ExtResource("1_cr4d8")
@@ -8,3 +9,30 @@ _rayCast = NodePath("RayCast3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1105856778]
 target_position = Vector3(0, 0, -1)
+
+[node name="Control" type="Control" parent="." unique_id=1125073573]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=1874954552]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -249.0
+offset_top = -149.0
+offset_right = 249.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_1y06w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="InteractMessage" from="." to="Control/Label" method="set_text"]

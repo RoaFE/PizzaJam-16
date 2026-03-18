@@ -12,6 +12,12 @@ func _ready() -> void:
 			item.OnUnequip()
 
 func _process(_delta: float) -> void:
+	if(Input.is_action_just_pressed("inventory_slot_1")):
+		_equippedIndex = 0
+		EquipItem(_equippedIndex)
+	if(Input.is_action_just_pressed("inventory_slot_2")):
+		_equippedIndex = 1
+		EquipItem(_equippedIndex)
 	if(Input.is_action_just_pressed("next_item")):
 		if(_items.size() == 0):
 			pass

@@ -42,6 +42,8 @@ _orientationSpace = NodePath("../../Orbit")
 
 [node name="Orbit" parent="." index="3" unique_id=1798830263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+_lookSens = 5.0
+_maxAngle = 60.0
 
 [node name="Interactor" parent="Orbit" index="0" unique_id=720486732 instance=ExtResource("5_jrf37")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)

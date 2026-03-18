@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ciu3jjsp24i1v"]
+
+[ext_resource type="PackedScene" uid="uid://drneajmvokxfr" path="res://Models/Tv.glb" id="1_a4k46"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emhpc"]
+shading_mode = 2
+diffuse_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.82
+roughness = 0.22
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q80sk"]
+size = Vector3(0.06665039, 1.0185547, 1.7990723)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_slduq"]
+height = 0.12072754
+radius = 0.048828125
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_56o7x"]
+size = Vector3(0.203125, 0.043945313, 0.32714844)
+
+[node name="Tv" unique_id=432125144 instance=ExtResource("1_a4k46")]
+
+[node name="Cube" parent="." index="0" unique_id=1969511142]
+surface_material_override/0 = SubResource("StandardMaterial3D_emhpc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1934391920]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1705556515]
+shape = SubResource("BoxShape3D_q80sk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=308754731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5675659, 0)
+shape = SubResource("CylinderShape3D_slduq")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2" unique_id=1218454913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6066284, 0)
+shape = SubResource("BoxShape3D_56o7x")

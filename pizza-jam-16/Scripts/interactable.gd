@@ -9,11 +9,16 @@ extends PhysicsBody3D
 
 var _used : bool = false
 
+signal OnInteract()
+
 # Called when the node enters the scene tree for the first time.
 func Interact():
+	if(_used):
+		return
 	if(_oneShot):
 		_used = true;
-	pass
+	OnInteract.emit()
+
 
 func GetMessage() -> String :
 	if(_used):

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bea664m5cl7ks"]
+
+[ext_resource type="PackedScene" uid="uid://c4lykqi2mmtff" path="res://Models/Tv_stand.glb" id="1_nmaxe"]
+[ext_resource type="Material" uid="uid://cxt7ytwsrlday" path="res://Materials/BasicWood.tres" id="2_wj2ob"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wj2ob"]
+size = Vector3(0.6035156, 0.40151978, 1.203125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_08016"]
+size = Vector3(0.6035156, 0.02986145, 1.194519)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kj24n"]
+size = Vector3(0.068603516, 0.26102448, 1.194519)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ce586"]
+size = Vector3(0.59729004, 0.24672318, 0.033846855)
+
+[node name="Tv_stand" unique_id=5745725 instance=ExtResource("1_nmaxe")]
+
+[node name="Cube_001" parent="." index="0" unique_id=777729107]
+surface_material_override/0 = ExtResource("2_wj2ob")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=947628750]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=560348080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0068359375, -1.0826263, 0.000579834)
+shape = SubResource("BoxShape3D_wj2ob")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=1759491554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0068359375, -0.650086, 0.000579834)
+shape = SubResource("BoxShape3D_08016")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2" unique_id=1614929751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26159668, -0.7656675, 0.000579834)
+shape = SubResource("BoxShape3D_kj24n")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" index="3" unique_id=362391240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002746582, -0.75851685, -0.58484936)
+shape = SubResource("BoxShape3D_ce586")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" index="4" unique_id=1032379888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002746582, -0.75851685, 0.5864419)
+shape = SubResource("BoxShape3D_ce586")
