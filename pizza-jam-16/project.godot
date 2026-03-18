@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PizzaJam16"
-run/main_scene="uid://bhyj1k6r5joxb"
+run/main_scene="uid://df1d4wdju08ui"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

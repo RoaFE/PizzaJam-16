@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://57kqhur3tcgo" path="res://Scenes/DrillBug.tscn" id="1_tt30a"]
 [ext_resource type="PackedScene" uid="uid://pmb805m8ig1g" path="res://Models/coffee_table.tscn" id="2_1ey7h"]
 [ext_resource type="PackedScene" uid="uid://car7dxocdhvn1" path="res://Scenes/CeilingLightBody.tscn" id="2_o1ld7"]
+[ext_resource type="PackedScene" uid="uid://df1d4wdju08ui" path="res://Scenes/menu.tscn" id="2_x0ehs"]
 [ext_resource type="PackedScene" uid="uid://bea664m5cl7ks" path="res://Scenes/tv_stand.tscn" id="5_lxycn"]
 [ext_resource type="PackedScene" uid="uid://cp55lbhmv1vkn" path="res://Scenes/bookcase.tscn" id="6_lxycn"]
 [ext_resource type="PackedScene" uid="uid://ciu3jjsp24i1v" path="res://Scenes/tv.tscn" id="6_vqw7c"]
@@ -26,8 +27,10 @@ size = Vector3(8, 0.1, 5)
 flip_faces = true
 size = Vector2(8, 5)
 
-[node name="Level" type="Node" unique_id=586401633]
+[node name="Level" type="Node" unique_id=586401633 node_paths=PackedStringArray("_objectiveManager")]
 script = ExtResource("1_q6q8i")
+_objectiveManager = NodePath("Home/ObjectiveManager")
+menu = ExtResource("2_x0ehs")
 
 [node name="Home" type="Node3D" parent="." unique_id=514780571]
 
