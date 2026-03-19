@@ -38,8 +38,7 @@ shape = SubResource("CylinderShape3D_2imi7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=752033039]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0031769872, 0)
-light_color = Color(0.81, 0.79852504, 0.6723, 1)
-light_energy = 3.0
+light_color = Color(0.9529412, 0.8, 0.59607846, 1)
 omni_range = 10.812
 
 [editable path="CeilingLight"]

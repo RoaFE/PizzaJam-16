@@ -1,10 +1,9 @@
 extends Node
 
-@export var level : PackedScene
+@export var levelPath : String
 
 func LoadLevel():
-	var scene = level.instantiate()
-	get_tree().root.add_child(scene)
+	GameManager.LoadScene(levelPath)
 	queue_free()
 	
 func Quit():

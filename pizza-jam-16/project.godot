@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/custom="uid://c4ith8oq0rye6"
 
+[autoload]
+
+GameManager="*uid://bkh0pyttpn2h4"
+
 [display]
 
 window/size/viewport_width=1920

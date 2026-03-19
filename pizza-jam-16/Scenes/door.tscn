@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bqa3cuyuxr14y"]
+
+[ext_resource type="PackedScene" uid="uid://bnmj7mrqlvtek" path="res://Models/Door.glb" id="1_w6aom"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0e35"]
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(1, 1, 0.8901961, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w6aom"]
+size = Vector3(1, 2, 1)
+
+[node name="Door" unique_id=2084296228 instance=ExtResource("1_w6aom")]
+
+[node name="Cube_002" parent="." index="0" unique_id=1795309557]
+material_override = SubResource("StandardMaterial3D_p0e35")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" index="0" unique_id=916672937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="0" unique_id=1988472301]
+shape = SubResource("BoxShape3D_w6aom")

@@ -51,10 +51,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 [node name="Camera3D" parent="Orbit" index="1" unique_id=1436450834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.1, 0.36)
 
-[node name="DrillBug" parent="." index="4" unique_id=1684587687 instance=ExtResource("3_50qdq")]
+[node name="DrillBug" parent="." index="4" unique_id=272221402 instance=ExtResource("3_50qdq")]
 
-[node name="Drill" parent="DrillBug" index="12" unique_id=1356349251 instance=ExtResource("7_snn4w")]
+[node name="Drill" parent="DrillBug" index="4" unique_id=1356349251 instance=ExtResource("7_snn4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058247447, -0.002387425, -0.032172706)
 
-[node name="Hammer" parent="DrillBug" index="13" unique_id=693762726 instance=ExtResource("8_h4tam")]
+[node name="Hammer" parent="DrillBug" index="5" unique_id=693762726 instance=ExtResource("8_h4tam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056744076, 0.025668167, -0.03378947)

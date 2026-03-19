@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dtm5x4slk4hbo"]
+
+[ext_resource type="Texture2D" uid="uid://dvfbb2t54bbv2" path="res://Textures/Palette.png" id="1_4baq8"]
+
+[resource]
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_4baq8")
+metallic_specular = 0.0
+roughness = 0.0

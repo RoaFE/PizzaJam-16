@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bx65ldky7asm0" path="res://Scripts/Menu.gd" id="1_cayip"]
 [ext_resource type="Texture2D" uid="uid://0uun6ew1plqi" path="res://Textures/BugWithADrill.png" id="1_xhh6f"]
-[ext_resource type="PackedScene" uid="uid://bhyj1k6r5joxb" path="res://home.tscn" id="2_158mb"]
 [ext_resource type="Theme" uid="uid://c4ith8oq0rye6" path="res://Resources/Theme.tres" id="2_cayip"]
 
 [node name="Menu" type="Node" unique_id=1361482224]
 script = ExtResource("1_cayip")
-level = ExtResource("2_158mb")
+levelPath = "home"
 
 [node name="Control" type="Control" parent="." unique_id=1492052403]
 layout_mode = 3

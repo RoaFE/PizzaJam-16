@@ -3,4 +3,4 @@
 [resource]
 shading_mode = 2
 diffuse_mode = 2
-albedo_color = Color(0.43, 0.25800002, 0, 1)
+albedo_color = Color(0.9529412, 0.6431373, 0.36862746, 1)

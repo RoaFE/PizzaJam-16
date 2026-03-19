@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://pmb805m8ig1g"]
 
 [ext_resource type="PackedScene" uid="uid://d1u0bs4scdmrs" path="res://Models/CoffeeTable.glb" id="1_dbk01"]
+[ext_resource type="Material" uid="uid://cxt7ytwsrlday" path="res://Materials/BasicWood.tres" id="2_iva34"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iva34"]
 size = Vector3(1, 0.1, 2.08)
@@ -9,6 +10,12 @@ size = Vector3(1, 0.1, 2.08)
 size = Vector3(0.100908205, 0.3149414, 0.099121094)
 
 [node name="CoffeeTable" unique_id=546720682 instance=ExtResource("1_dbk01")]
+
+[node name="Cube" parent="." index="0" unique_id=1013962742]
+material_override = ExtResource("2_iva34")
+
+[node name="Cube_001" parent="." index="1" unique_id=111916683]
+material_override = ExtResource("2_iva34")
 
 [node name="CollisionShape3D" type="StaticBody3D" parent="." index="2" unique_id=701822064]
 
