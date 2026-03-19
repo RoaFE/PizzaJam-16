@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://cuewm1i20c650" path="res://Scenes/shelf.tscn" id="11_fl7t2"]
 [ext_resource type="PackedScene" uid="uid://c3q70tobluf3e" path="res://Scenes/table.tscn" id="12_dbibd"]
 [ext_resource type="PackedScene" uid="uid://vjwqfaoiixdg" path="res://Scenes/stool.tscn" id="13_eo6ub"]
+[ext_resource type="PackedScene" uid="uid://b01xdjyt2xktc" path="res://Scenes/Vase.tscn" id="16_o74ia"]
+[ext_resource type="PackedScene" uid="uid://cj4kmwn5x2c00" path="res://Scenes/photo_frame.tscn" id="16_yl413"]
+[ext_resource type="PackedScene" uid="uid://py5j0vdxl2tc" path="res://Scenes/Poster.tscn" id="17_o74ia"]
+[ext_resource type="PackedScene" uid="uid://choltaglinoln" path="res://Scenes/Bowl.tscn" id="17_ygs7m"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_guf2q"]
 _surfaces = [{
@@ -210,3 +214,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6950064, -0.0061476007, -0
 
 [node name="Stool4" parent="." unique_id=390346517 instance=ExtResource("13_eo6ub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.729744, 0.0061292276, -1.483682)
+
+[node name="PhotoFrame" parent="." unique_id=628007401 instance=ExtResource("16_yl413")]
+transform = Transform3D(0.9682069, 0.07127965, 0.23978114, -0.008705098, 0.9675638, -0.25247693, -0.25000003, 0.24236257, 0.9374223, 1.7425038, 1.3208126, 2.201079)
+
+[node name="PhotoFrame2" parent="." unique_id=1874872165 instance=ExtResource("16_yl413")]
+transform = Transform3D(0.8630641, -0.16182154, -0.47847033, 0.025961628, 0.9602494, -0.2779326, 0.50442654, 0.2274517, 0.832958, 0.50619173, 1.3221562, 2.2322085)
+
+[node name="PhotoFrame3" parent="." unique_id=1393352342 instance=ExtResource("17_o74ia")]
+transform = Transform3D(-1.3113416e-07, 0, 1, 0, 3, 0, -3, 0, -4.371139e-08, 3.948185, 1.7358258, -0.5627324)
+
+[node name="PhotoFrame4" parent="." unique_id=504387886 instance=ExtResource("17_o74ia")]
+transform = Transform3D(-1.3113416e-07, 0, 1, 0, 3, 0, -3, 0, -4.371139e-08, 3.948185, 1.4585806, 0.26317853)
+
+[node name="Vase" parent="." unique_id=2000604631 instance=ExtResource("16_o74ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1348672, 0.6750801, -0.5630934)
+
+[node name="Vase2" parent="." unique_id=889341114 instance=ExtResource("16_o74ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7646766, 0.9446195, -0.014787197)
+
+[node name="Bowl" parent="." unique_id=2002629202 instance=ExtResource("17_ygs7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8942329, 0.7261747, -0.36539024)
+
+[node name="Bowl2" parent="." unique_id=1714488930 instance=ExtResource("17_ygs7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9406242, 0.6849794, -0.85016394)
+
+[node name="Bowl3" parent="." unique_id=998649951 instance=ExtResource("17_ygs7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7648286, 0.39755756, -0.42374587)
+
+[node name="Bowl4" parent="." unique_id=203503620 instance=ExtResource("17_ygs7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3237457, 0.39755744, -0.7070466)

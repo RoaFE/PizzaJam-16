@@ -59,7 +59,7 @@ func Build():
 	
 	builtThing.global_position = midPoint
 	builtThing.global_basis = Basis(left,up,forward)
-	builtThing.scale.x = min(2,dist);
+	builtThing.scale.x = max(.2,dist);
 	_buildPoints[0].collider.queue_free()
 	_buildPoints[1].collider.queue_free()
 	_buildPoints.clear()

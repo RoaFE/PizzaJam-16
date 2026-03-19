@@ -32,8 +32,10 @@ menuPath = "menu"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=352221207]
 transform = Transform3D(-0.9723699, -0.10525527, 0.20837003, 0, 0.8925858, 0.45087752, -0.23344538, 0.43841973, -0.86792356, 0, 0, 0)
-light_energy = 0.7
+light_energy = 0.383
 shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_blend_splits = true
 directional_shadow_max_distance = 50.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=634221450]

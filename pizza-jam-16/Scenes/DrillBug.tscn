@@ -16,8 +16,10 @@ height = 0.14711913
 [node name="Char" unique_id=2034992785 node_paths=PackedStringArray("_model") instance=ExtResource("1_b8i1x")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 2
+collision_mask = 13
 _speed = 1.6
 _jump_velocity = 2.6
+_push_force = 0.01
 _model = NodePath("DrillBug")
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1034918182]

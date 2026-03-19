@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ds6ua8ytas745"]
+
+[ext_resource type="PackedScene" uid="uid://biqhqck200e2x" path="res://Models/Vase.glb" id="1_dpexj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8en8"]
+cull_mode = 2
+
+[node name="Vase" unique_id=807125419 instance=ExtResource("1_dpexj")]
+
+[node name="Cylinder" parent="." index="0" unique_id=1826316004]
+material_override = SubResource("StandardMaterial3D_m8en8")
