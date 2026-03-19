@@ -16,8 +16,8 @@ height = 0.14711913
 [node name="Char" unique_id=2034992785 node_paths=PackedStringArray("_model") instance=ExtResource("1_b8i1x")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 2
-_speed = 2.0
-_jump_velocity = 2.0
+_speed = 1.6
+_jump_velocity = 2.6
 _model = NodePath("DrillBug")
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1034918182]
@@ -42,7 +42,8 @@ _orientationSpace = NodePath("../../Orbit")
 
 [node name="Orbit" parent="." index="3" unique_id=1798830263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-_lookSens = 5.0
+_lookSens = 2.0
+_minAngle = -60.0
 _maxAngle = 60.0
 
 [node name="Interactor" parent="Orbit" index="0" unique_id=720486732 instance=ExtResource("5_jrf37")]
@@ -53,8 +54,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.1, 0.36)
 
 [node name="DrillBug" parent="." index="4" unique_id=272221402 instance=ExtResource("3_50qdq")]
 
-[node name="Drill" parent="DrillBug" index="4" unique_id=1356349251 instance=ExtResource("7_snn4w")]
+[node name="Drill" parent="DrillBug" index="4" unique_id=530906837 instance=ExtResource("7_snn4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058247447, -0.002387425, -0.032172706)
 
-[node name="Hammer" parent="DrillBug" index="5" unique_id=693762726 instance=ExtResource("8_h4tam")]
+[node name="Hammer" parent="DrillBug" index="5" unique_id=120685095 instance=ExtResource("8_h4tam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056744076, 0.025668167, -0.03378947)

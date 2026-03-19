@@ -49,7 +49,8 @@ func Build():
 	var left = (pos0 - pos1).normalized() 
 	print(left)
 	var forward = (_buildPoints[0].collider.global_basis.z + _buildPoints[1].collider.global_basis.z).normalized() 
-	print(forward)
+	if(forward == Vector3.ZERO):
+		forward = (_buildPoints[0].collider.global_basis.x - _buildPoints[1].collider.global_basis.x).normalized() 
 	var up = left.cross(forward).normalized();
 	if(up.y < 0):
 		up = -up

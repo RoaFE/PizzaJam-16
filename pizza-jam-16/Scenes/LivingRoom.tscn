@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bea664m5cl7ks" path="res://Scenes/tv_stand.tscn" id="9_y1ba7"]
 [ext_resource type="PackedScene" uid="uid://ciu3jjsp24i1v" path="res://Scenes/tv.tscn" id="10_jlvmt"]
 [ext_resource type="PackedScene" uid="uid://cuewm1i20c650" path="res://Scenes/shelf.tscn" id="11_fl7t2"]
+[ext_resource type="PackedScene" uid="uid://c3q70tobluf3e" path="res://Scenes/table.tscn" id="12_dbibd"]
+[ext_resource type="PackedScene" uid="uid://vjwqfaoiixdg" path="res://Scenes/stool.tscn" id="13_eo6ub"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_guf2q"]
 _surfaces = [{
@@ -193,3 +195,18 @@ transform = Transform3D(-1.7, 0, -8.7422784e-08, 0, 1, 0, 1.4861872e-07, 0, -1.0
 
 [node name="Shelf2" parent="Furniture" unique_id=1523388185 instance=ExtResource("11_fl7t2")]
 transform = Transform3D(-3.8627906e-08, 0, 1, 0, 1, 0, -0.8837034, 0, -4.37114e-08, -3.977967, 0.9402305, -1.6164491)
+
+[node name="Table" parent="." unique_id=700074530 instance=ExtResource("12_dbibd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.232178, -0.007419944, -0.61878455)
+
+[node name="Stool" parent="." unique_id=1589650275 instance=ExtResource("13_eo6ub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5759965, 0.0005764589, -1.2269133)
+
+[node name="Stool2" parent="." unique_id=1822674274 instance=ExtResource("13_eo6ub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.559339, 0.01537808, -0.11405215)
+
+[node name="Stool3" parent="." unique_id=1971988769 instance=ExtResource("13_eo6ub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6950064, -0.0061476007, -0.13721052)
+
+[node name="Stool4" parent="." unique_id=390346517 instance=ExtResource("13_eo6ub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.729744, 0.0061292276, -1.483682)

@@ -45,7 +45,7 @@ environment = SubResource("Environment_cykap")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0011883378, 1.1920929e-07, -0.0005899668)
 
 [node name="Char" parent="Home" unique_id=2034992785 instance=ExtResource("2_gyiet")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.64580107, 0.2999999, -1.2373931)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.4373016, 0.3, 1.5798223)
 
 [node name="CeilingLight" parent="Home" unique_id=1250733903 instance=ExtResource("3_jjai4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.1623669, 0)
