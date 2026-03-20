@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b3qf26ky7r7sm"]
+
+[ext_resource type="Script" uid="uid://cblarwygva7ta" path="res://Scripts/InteractablePoster.gd" id="1_6y2jw"]
+[ext_resource type="PackedScene" uid="uid://py5j0vdxl2tc" path="res://Scenes/Poster.tscn" id="2_em4ho"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5b50v"]
+size = Vector3(0.021484375, 0.70703125, 0.59375)
+
+[node name="InteractablePoster" type="RigidBody3D" unique_id=490757190 node_paths=PackedStringArray("_rigidBody")]
+can_sleep = false
+freeze = true
+script = ExtResource("1_6y2jw")
+_rigidBody = NodePath(".")
+_oneShot = true
+_interactMessage = "Press E to remove"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=444766008]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.003485824, 0, 0.0011619412)
+shape = SubResource("BoxShape3D_5b50v")
+
+[node name="PhotoFrame" parent="." unique_id=628007401 instance=ExtResource("2_em4ho")]
+
+[editable path="PhotoFrame"]

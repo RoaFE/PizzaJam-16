@@ -32,6 +32,7 @@ offset_bottom = -73.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_1y06w")
+theme_override_font_sizes/font_size = 65
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://57kqhur3tcgo" path="res://Scenes/DrillBug.tscn" id="2_gyiet"]
 [ext_resource type="PackedScene" uid="uid://b7y14ae48bmyy" path="res://Scenes/LivingRoom.tscn" id="2_vkfas"]
 [ext_resource type="PackedScene" uid="uid://car7dxocdhvn1" path="res://Scenes/CeilingLightBody.tscn" id="3_jjai4"]
+[ext_resource type="PackedScene" uid="uid://b3qf26ky7r7sm" path="res://Scenes/interactable_poster.tscn" id="8_q1yq7"]
 [ext_resource type="Script" uid="uid://bcitgmo03cqog" path="res://Scripts/ObjectiveManager.gd" id="9_848r5"]
 [ext_resource type="Script" uid="uid://bf1eu2qx2f5e1" path="res://Scripts/Objective.gd" id="10_pkgvh"]
 [ext_resource type="Theme" uid="uid://c4ith8oq0rye6" path="res://Resources/Theme.tres" id="11_7wmtr"]
@@ -34,9 +35,7 @@ menuPath = "menu"
 transform = Transform3D(-0.9723699, -0.10525527, 0.20837003, 0, 0.8925858, 0.45087752, -0.23344538, 0.43841973, -0.86792356, 0, 0, 0)
 light_energy = 0.383
 shadow_enabled = true
-directional_shadow_mode = 1
-directional_shadow_blend_splits = true
-directional_shadow_max_distance = 50.0
+directional_shadow_max_distance = 9.3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=634221450]
 environment = SubResource("Environment_cykap")
@@ -55,10 +54,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.1623669, 0)
 [node name="CeilingLight2" parent="Home" unique_id=110944094 instance=ExtResource("3_jjai4")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, -2, 2.1618564, 0)
 
+[node name="InteractablePoster" parent="Home" unique_id=1946915028 instance=ExtResource("8_q1yq7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.9485624, 1.775619, -0.18703878)
+
 [node name="ObjectiveManager" type="Node" parent="Home" unique_id=1538165491 node_paths=PackedStringArray("_objectives", "_uiParent")]
 script = ExtResource("9_848r5")
-_objectives = [NodePath("CeilingLight01"), NodePath("CeilingLight02")]
+_objectives = [NodePath("Install a Shelf"), NodePath("Poster"), NodePath("CeilingLight01"), NodePath("CeilingLight02")]
 _uiParent = NodePath("Control/VBoxContainer")
+
+[node name="Install a Shelf" type="Node" parent="Home/ObjectiveManager" unique_id=736733702]
+script = ExtResource("10_pkgvh")
+_objectiveMessage = "Put up a shelf"
 
 [node name="CeilingLight01" type="Node" parent="Home/ObjectiveManager" unique_id=2144562561]
 script = ExtResource("10_pkgvh")
@@ -67,6 +73,10 @@ _objectiveMessage = "Remove Ceiling Light"
 [node name="CeilingLight02" type="Node" parent="Home/ObjectiveManager" unique_id=1210588122]
 script = ExtResource("10_pkgvh")
 _objectiveMessage = "Remove the other Ceiling Light"
+
+[node name="Poster" type="Node" parent="Home/ObjectiveManager" unique_id=102513036]
+script = ExtResource("10_pkgvh")
+_objectiveMessage = "Remove frame above shelving units"
 
 [node name="Control" type="Control" parent="Home/ObjectiveManager" unique_id=1169786898]
 layout_mode = 3
@@ -93,5 +103,10 @@ bbcode_enabled = true
 text = "[b]Todo list:[/b]"
 fit_content = true
 
+[connection signal="ShelfBuilt" from="Home/Char/InputSpot/Hammer" to="Home/ObjectiveManager/Install a Shelf" method="ObjectiveComplete"]
 [connection signal="OnInteract" from="Home/CeilingLight" to="Home/ObjectiveManager/CeilingLight01" method="ObjectiveComplete"]
 [connection signal="OnInteract" from="Home/CeilingLight2" to="Home/ObjectiveManager/CeilingLight02" method="ObjectiveComplete"]
+[connection signal="OnInteract" from="Home/InteractablePoster" to="Home/ObjectiveManager/Poster" method="ObjectiveComplete"]
+
+[editable path="Home/Char"]
+[editable path="Home/Char/DrillBug/MeshInstance3D2/Hammer"]

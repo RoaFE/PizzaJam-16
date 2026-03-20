@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bbopbtejiiyvm" path="res://Scenes/Interactor.tscn" id="5_jrf37"]
 [ext_resource type="Script" uid="uid://ql7mxvho6hvt" path="res://Scripts/CharViewController.gd" id="7_h4tam"]
 [ext_resource type="PackedScene" uid="uid://colarqmwbcobc" path="res://Models/Drill.glb" id="7_snn4w"]
+[ext_resource type="Script" uid="uid://buun7dxi23m7v" path="res://Scripts/Hand.gd" id="8_3umyl"]
 [ext_resource type="PackedScene" uid="uid://b88klw8ys620u" path="res://Models/Hammer.glb" id="8_h4tam"]
 [ext_resource type="Script" uid="uid://15yvkocyyikp" path="res://Scripts/Foot.gd" id="10_kpu08"]
 
@@ -75,39 +76,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 [node name="Camera3D" parent="Orbit" index="1" unique_id=1436450834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.1, 0.36)
 
-[node name="DrillBug" parent="." index="4" unique_id=272221402 instance=ExtResource("3_50qdq")]
+[node name="DrillBug" parent="." index="4" unique_id=272221402 node_paths=PackedStringArray("_playerChar") instance=ExtResource("3_50qdq")]
 script = ExtResource("7_h4tam")
-_turnSpeed = 23.0
+_turnSpeed = 40.0
+_playerChar = NodePath("..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DrillBug" index="4" unique_id=1335625236]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DrillBug" index="4" unique_id=1335625236 node_paths=PackedStringArray("_playerChar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06093685, 0.0023369268, -0.032917276)
 mesh = SubResource("SphereMesh_kpu08")
+script = ExtResource("8_3umyl")
+_playerChar = NodePath("../..")
 
 [node name="Drill" parent="DrillBug/MeshInstance3D" index="0" unique_id=530906837 instance=ExtResource("7_snn4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0001491569, -0.004918603, -0.0015530623)
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="DrillBug" index="5" unique_id=149017241]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="DrillBug" index="5" unique_id=149017241 node_paths=PackedStringArray("_playerChar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.061, 0.002, -0.033)
 mesh = SubResource("SphereMesh_kpu08")
+script = ExtResource("8_3umyl")
+_time = 3.14
+_playerChar = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="DrillBug" index="6" unique_id=155935596]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="DrillBug" index="6" unique_id=155935596 node_paths=PackedStringArray("_playerChar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05623739, 0.028006818, -0.0345956)
 mesh = SubResource("SphereMesh_kpu08")
+script = ExtResource("8_3umyl")
+_time = 0.523
+_playerChar = NodePath("../..")
 
 [node name="Hammer" parent="DrillBug/MeshInstance3D2" index="0" unique_id=120685095 instance=ExtResource("8_h4tam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005066879, -0.0023386516, 0.00080613047)
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="DrillBug" index="7" unique_id=1512025391]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="DrillBug" index="7" unique_id=1512025391 node_paths=PackedStringArray("_playerChar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056, 0.028, -0.035)
 mesh = SubResource("SphereMesh_kpu08")
+script = ExtResource("8_3umyl")
+_time = 2.617
+_playerChar = NodePath("../..")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="DrillBug" index="8" unique_id=376396623]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="DrillBug" index="8" unique_id=376396623 node_paths=PackedStringArray("_playerChar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056, -0.028, -0.035)
 mesh = SubResource("SphereMesh_kpu08")
+script = ExtResource("8_3umyl")
+_time = 1.047
+_playerChar = NodePath("../..")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="DrillBug" index="9" unique_id=145953565]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="DrillBug" index="9" unique_id=145953565 node_paths=PackedStringArray("_playerChar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056, -0.028, -0.035)
 mesh = SubResource("SphereMesh_kpu08")
+script = ExtResource("8_3umyl")
+_time = 2.093
+_playerChar = NodePath("../..")
 
 [node name="Node3D2" type="Node3D" parent="DrillBug" index="10" unique_id=838424384]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03051852, -0.068, 0)
@@ -124,6 +143,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030527119, -0.068, 0)
 mesh = SubResource("SphereMesh_h4tam")
 script = ExtResource("10_kpu08")
 _playerChar = NodePath("../../..")
-_time = 1.5699999999999998
+_time = 3.14
 
 [connection signal="PlayerDirectionUpdated" from="." to="DrillBug" method="UpdateTargetDirection"]

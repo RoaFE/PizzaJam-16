@@ -28,11 +28,13 @@ func UpdateObjectiveText():
 	for objective in _objectives:
 		var text : RichTextLabel = _objectiveText[objective]
 		var objectiveText : String = "- " + objective._objectiveMessage
-		if(objective._objectiveComplete):
+		if(objective._objectiveComplete > 0):
 			text.text = "[s]" + objectiveText + "[/s]"
+			if(objective._objectiveComplete > 1):
+				text.text += " x%X" % objective._objectiveComplete
 		else:
 			text.text = objectiveText
-		objectivesComplete = objectivesComplete && objective._objectiveComplete
+		objectivesComplete = objectivesComplete && objective._objectiveComplete > 0
 	if(objectivesComplete):
 		AllObjectivesComplete.emit()
 			
