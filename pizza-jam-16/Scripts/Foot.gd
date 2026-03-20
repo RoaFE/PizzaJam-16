@@ -16,7 +16,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if(_playerChar.is_on_floor()):
 		_time += _playerChar.velocity.length() * delta * 10
-		position.y = max(0, sin(_time) * 0.022)
-		position.z = cos(_time) * 0.022
+		position.y = move_toward(position.y, max(0, sin(_time) * 0.022), delta)
+		position.z = move_toward(position.z, cos(_time) * 0.022, delta)
+	else:
+		position.y = move_toward(position.y, 0, delta)
+		position.z = move_toward(position.z, 0, delta)
 	
 	

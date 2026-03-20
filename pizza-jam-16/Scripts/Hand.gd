@@ -12,3 +12,5 @@ func _process(delta: float) -> void:
 		_time += _playerChar.velocity.length() * delta * 12
 		position.y = _startPos.y + sin(_time) * 0.005
 		position.z = _startPos.z + cos(_time) * 0.005
+	else:
+		position.y = move_toward(position.y, _startPos.y + (-_playerChar.velocity.y * 0.01), delta * .07)

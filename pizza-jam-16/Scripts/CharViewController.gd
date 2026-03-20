@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var _modelDirection := -basis.z
+@onready var _modelDirection := basis.z
 @export var _turnSpeed : float = 1.0
 
 @export var _time := 0.0
