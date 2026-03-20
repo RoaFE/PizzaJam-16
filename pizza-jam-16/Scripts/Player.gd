@@ -2,10 +2,14 @@ extends CharacterBody3D
 
 
 @export var _speed = 5.0
+@export var _acceleration = 5.0
 @export var _jump_velocity = 4.5
 
 @export var _inputSpace : Node3D; 
-@export var _model : Node3D
+
+var _curSpeed := 0.0
+
+signal PlayerDirectionUpdated(direction : Vector3)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -22,15 +26,18 @@ func _physics_process(delta: float) -> void:
 	var direction := (_inputSpace.basis * Vector3(input_dir.x, 0, input_dir.y))
 	direction.y = 0
 	direction = direction.normalized()
-	var up := Vector3(0,1,0)
 	
 	
 	if direction:
-		velocity.x = direction.x * _speed
-		velocity.z = direction.z * _speed
-		_model.basis = Basis(up.cross(-direction), up, -direction)
+		PlayerDirectionUpdated.emit(direction)
+		_curSpeed = move_toward(_curSpeed, _speed, _acceleration * delta)
+		
+		velocity.x = direction.x * _curSpeed
+		velocity.z = direction.z * _curSpeed
 	else:
-		velocity.x = move_toward(velocity.x, 0, _speed)
-		velocity.z = move_toward(velocity.z, 0, _speed)
+		_curSpeed = move_toward(_curSpeed, 0, _acceleration * delta)
+		var velocityDirection = Vector3(velocity.x, 0 ,velocity.z).normalized()
+		velocity.x = velocityDirection.x * _curSpeed
+		velocity.z = velocityDirection.z * _curSpeed
 
 	move_and_slide()
