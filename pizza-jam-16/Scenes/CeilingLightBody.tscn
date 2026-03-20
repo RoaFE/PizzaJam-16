@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b61nlp3b3ae8r" path="res://Scripts/CeilingLightInteractor.gd" id="1_6nxtj"]
 [ext_resource type="PackedScene" uid="uid://das8eynhgf436" path="res://Models/ceiling_light.tscn" id="2_2imi7"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6nxtj"]
+[ext_resource type="PackedScene" uid="uid://ra3vsv2xmkcd" path="res://Scenes/Explosion.tscn" id="2_tuey6"]
+[ext_resource type="Material" uid="uid://l3jrt007f1hj" path="res://Materials/Lightbulb.tres" id="3_e3rx2"]
+[ext_resource type="Material" uid="uid://d12gj5ldpuocj" path="res://Materials/Shade.tres" id="4_tuey6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6nxtj"]
 height = 0.3310547
@@ -13,20 +14,32 @@ radius = 0.22558594
 height = 0.19006348
 radius = 0.083984375
 
-[node name="Node3D" type="RigidBody3D" unique_id=1250733903 node_paths=PackedStringArray("_rigidBody")]
+[node name="Node3D" type="RigidBody3D" unique_id=1250733903 node_paths=PackedStringArray("_rigidBody", "_light", "_explosion")]
 freeze = true
 script = ExtResource("1_6nxtj")
 _rigidBody = NodePath(".")
+_light = NodePath("OmniLight3D")
+_explosion = NodePath("Node3D")
 _oneShot = true
 _interactMessage = "Press E to Remove Light"
+
+[node name="Node3D" parent="." unique_id=2043461482 instance=ExtResource("2_tuey6")]
+lifetime = 0.8
+initial_velocity_min = 2.0
+initial_velocity_max = 9.0
+damping_min = 5.0
+damping_max = 9.0
+scale_amount_min = 0.3
+scale_amount_max = 4.0
 
 [node name="CeilingLight" parent="." unique_id=770346741 instance=ExtResource("2_2imi7")]
 
 [node name="Sphere" parent="CeilingLight" index="0" unique_id=684569865]
-material_override = SubResource("StandardMaterial3D_6nxtj")
+material_override = ExtResource("3_e3rx2")
 
 [node name="Cylinder" parent="CeilingLight" index="1" unique_id=188552849]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011604011, 0)
+material_override = ExtResource("4_tuey6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1884091472]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015136719, 0)
@@ -41,4 +54,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0031769872, 0)
 light_color = Color(0.9529412, 0.8, 0.59607846, 1)
 omni_range = 10.812
 
+[editable path="Node3D"]
 [editable path="CeilingLight"]

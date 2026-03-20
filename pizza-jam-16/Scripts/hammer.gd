@@ -20,6 +20,7 @@ func _physics_process(_delta: float) -> void:
 		_indicator.visible = false
 
 func Action():
+	super.Action()
 	if(!_equipped):
 		return
 	var result = super.ShootRay()

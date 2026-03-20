@@ -7,7 +7,7 @@ extends "res://Scripts/tool.gd"
 @export var _indicator : Node3D
 
 func Action():
-	
+	super.Action()
 	if(!_equipped):
 		return
 	

@@ -16,7 +16,7 @@ func _ready() -> void:
 		var text = RichTextLabel.new()
 		text.fit_content = true
 		text.bbcode_enabled = true
-		text.add_theme_font_size_override("normal_font_size", 24)
+		text.add_theme_font_size_override("normal_font_size", 34)
 		_uiParent.add_child(text);
 		_objectiveText[objective] = text
 		objective.OnObjectiveComplete.connect(UpdateObjectiveText)

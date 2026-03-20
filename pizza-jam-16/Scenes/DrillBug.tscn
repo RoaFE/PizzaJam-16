@@ -42,7 +42,7 @@ collision_layer = 2
 collision_mask = 13
 _speed = 1.6
 _jump_velocity = 2.6
-_push_force = 0.01
+_push_force = 0.05
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1034918182]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.017407224, 0)

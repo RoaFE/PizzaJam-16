@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b01xdjyt2xktc"]
 
 [ext_resource type="PackedScene" uid="uid://ds6ua8ytas745" path="res://Models/vase_model.tscn" id="1_y13w5"]
+[ext_resource type="Material" uid="uid://cuefmnemwsu4a" path="res://Materials/Vase.tres" id="2_wgqjh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y13w5"]
 friction = 0.5
@@ -11,7 +12,7 @@ points = PackedVector3Array(0.08060837, 0.053024545, -0.005987072, -0.083130844,
 [node name="VaseBody" type="RigidBody3D" unique_id=2000604631]
 collision_layer = 8
 collision_mask = 15
-mass = 0.01
+mass = 0.15
 physics_material_override = SubResource("PhysicsMaterial_y13w5")
 can_sleep = false
 
@@ -19,5 +20,8 @@ can_sleep = false
 shape = SubResource("ConvexPolygonShape3D_wgqjh")
 
 [node name="Vase" parent="." unique_id=807125419 instance=ExtResource("1_y13w5")]
+
+[node name="Cylinder" parent="Vase" index="0" unique_id=1826316004]
+material_override = ExtResource("2_wgqjh")
 
 [editable path="Vase"]

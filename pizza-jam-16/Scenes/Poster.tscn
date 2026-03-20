@@ -1,9 +1,21 @@
 [gd_scene format=3 uid="uid://py5j0vdxl2tc"]
 
 [ext_resource type="PackedScene" uid="uid://djlsfy6cl7vk4" path="res://Models/PhotoFrame.glb" id="1_nlxn5"]
+[ext_resource type="Material" uid="uid://cxt7ytwsrlday" path="res://Materials/BasicWood.tres" id="2_kv5bu"]
+[ext_resource type="Texture2D" uid="uid://1l6rh0q30sl0" path="res://Textures/LandScape.png" id="3_brbqe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwu0w"]
+albedo_texture = ExtResource("3_brbqe")
 
 [node name="PhotoFrame" unique_id=628007401 instance=ExtResource("1_nlxn5")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Cube_001" parent="." index="2" unique_id=1563545464]
+[node name="Cube" parent="." index="0" unique_id=372914725]
+material_override = ExtResource("2_kv5bu")
+
+[node name="Plane" parent="." index="1" unique_id=835558062]
+transform = Transform3D(-0.9620745, 5.960464e-08, -5.245367e-08, 4.2053614e-08, -5.960466e-08, -1.2, -5.7344106e-08, -1, 7.152557e-08, 0.0011619412, 0, -0.0011619412)
+material_override = SubResource("StandardMaterial3D_wwu0w")
+
+[node name="Cube_001" parent="." index="2" unique_id=666430879]
 visible = false

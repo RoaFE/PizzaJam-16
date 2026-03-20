@@ -5,6 +5,7 @@ extends "res://Scripts/Equipable.gd"
 
 @export var _range : float = 1
 
+signal OnAction()
 
 func _ready() -> void:
 	if(_orientationSpace == null):
@@ -20,6 +21,7 @@ func _process(_delta: float) -> void:
 func Action():
 	if(!_equipped):
 		return
+	OnAction.emit()
 	
 func ShootRay() -> Dictionary:
 	var space_state = get_world_3d().direct_space_state
