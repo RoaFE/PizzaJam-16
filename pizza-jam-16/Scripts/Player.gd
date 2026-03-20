@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var _speed = 5.0
 @export var _acceleration = 5.0
 @export var _jump_velocity = 4.5
+@export var _push_force : float = 1
 
 @export var _inputSpace : Node3D; 
 
@@ -41,3 +42,9 @@ func _physics_process(delta: float) -> void:
 		velocity.z = velocityDirection.z * _curSpeed
 
 	move_and_slide()
+	
+	# after calling move_and_slide()
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody3D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * _push_force)

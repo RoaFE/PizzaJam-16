@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bhdeelkpbaqcp"]
+
+[ext_resource type="PackedScene" uid="uid://ba3rwuksdig0k" path="res://Models/Bowl.glb" id="1_mdowk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdowk"]
+cull_mode = 2
+
+[node name="BowlModel" unique_id=432570197 instance=ExtResource("1_mdowk")]
+
+[node name="Bowl" parent="." index="0" unique_id=1119041534]
+material_override = SubResource("StandardMaterial3D_mdowk")

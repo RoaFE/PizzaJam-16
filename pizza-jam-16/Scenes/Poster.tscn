@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://py5j0vdxl2tc"]
+
+[ext_resource type="PackedScene" uid="uid://djlsfy6cl7vk4" path="res://Models/PhotoFrame.glb" id="1_nlxn5"]
+
+[node name="PhotoFrame" unique_id=628007401 instance=ExtResource("1_nlxn5")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Cube_001" parent="." index="2" unique_id=1563545464]
+visible = false

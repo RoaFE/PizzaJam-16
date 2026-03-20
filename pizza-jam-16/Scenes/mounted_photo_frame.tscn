@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d384hxjy1nwbu"]
+
+[ext_resource type="PackedScene" uid="uid://djlsfy6cl7vk4" path="res://Models/PhotoFrame.glb" id="1_l785s"]
+
+[node name="PhotoFrame" unique_id=1807193146 instance=ExtResource("1_l785s")]
+
+[node name="Cube_001" parent="." index="2" unique_id=666430879]
+visible = false
