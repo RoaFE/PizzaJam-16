@@ -1,0 +1,344 @@
+[gd_scene format=3 uid="uid://n8jgun67r338"]
+
+[ext_resource type="Texture2D" uid="uid://c08kojktt8ra" path="res://Textures/BugWithADrillStandAlone.png" id="1_dgq0a"]
+[ext_resource type="Texture2D" uid="uid://dnrdfd73twfn6" path="res://Textures/Review.png" id="1_vxw56"]
+[ext_resource type="Texture2D" uid="uid://bhyaqgcw0lolq" path="res://Textures/Kissy.png" id="2_3mtm4"]
+[ext_resource type="Theme" uid="uid://c4ith8oq0rye6" path="res://Resources/Theme.tres" id="3_t1wt1"]
+[ext_resource type="PackedScene" uid="uid://cblv7a4eqy7s8" path="res://Models/DrillBug.glb" id="5_x6emu"]
+[ext_resource type="PackedScene" uid="uid://colarqmwbcobc" path="res://Models/Drill.glb" id="8_6of5d"]
+[ext_resource type="PackedScene" uid="uid://b88klw8ys620u" path="res://Models/Hammer.glb" id="9_s5t8u"]
+[ext_resource type="Script" uid="uid://dl6al8j77mam7" path="res://Scenes/AutoRotate.gd" id="11_pec68"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbt2x"]
+bg_color = Color(0.43529412, 0.72156864, 0.8235294, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_deaqq"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2mae0"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhg1x"]
+bg_color = Color(0.7254902, 0.7058824, 0.69411767, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxw56"]
+bg_color = Color(0.5803922, 0.16862746, 0.27450982, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mtm4"]
+bg_color = Color(0.46666667, 0.2, 0.2901961, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1wt1"]
+bg_color = Color(0.7921569, 0.2627451, 0.30588236, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4tam"]
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.9529412, 0.8, 0.59607846, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kpu08"]
+material = SubResource("StandardMaterial3D_h4tam")
+radius = 0.005
+height = 0.01
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_h4tam"]
+material = SubResource("StandardMaterial3D_h4tam")
+radius = 0.01
+height = 0.02
+radial_segments = 8
+rings = 4
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_deaqq"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+energy_multiplier = 1.3
+
+[sub_resource type="Sky" id="Sky_2mae0"]
+sky_material = SubResource("ProceduralSkyMaterial_deaqq")
+
+[sub_resource type="Environment" id="Environment_5pfja"]
+background_mode = 2
+sky = SubResource("Sky_2mae0")
+tonemap_mode = 2
+sdfgi_enabled = true
+
+[node name="Review" type="Control" unique_id=446610449]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1896124529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbt2x")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel" unique_id=1113905895]
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 413.0
+offset_right = 1740.0
+offset_bottom = 925.0
+scale = Vector2(1.2655318, 1.2655318)
+texture = SubResource("ViewportTexture_deaqq")
+
+[node name="TextureRect3" type="TextureRect" parent="Panel" unique_id=1448886366]
+layout_mode = 0
+offset_left = -157.99997
+offset_top = -145.0
+offset_right = 354.00003
+offset_bottom = 367.0
+scale = Vector2(1.5200005, 1.5200005)
+texture = SubResource("ViewportTexture_2mae0")
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1131045435]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 328.0
+offset_right = 1341.0
+offset_bottom = 1352.0
+scale = Vector2(0.76, 0.76)
+texture = ExtResource("1_dgq0a")
+
+[node name="Label" type="Label" parent="Panel" unique_id=909626989]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -397.0
+offset_top = -508.0
+offset_right = 859.0
+offset_bottom = -154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+text = "Another happy customer and another job well done!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Panel" unique_id=1569180453]
+layout_mode = 0
+offset_left = 1055.0
+offset_top = 656.0
+offset_right = 1539.0
+offset_bottom = 820.0
+theme = ExtResource("3_t1wt1")
+theme_override_font_sizes/font_size = 66
+text = "Hurray"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=326619965]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vxw56")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=1709468171]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 308.0
+offset_right = 621.0
+offset_bottom = 448.0
+texture = ExtResource("2_3mtm4")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="TextureRect/TextureRect" unique_id=806145122]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 172.0
+offset_right = 1393.0
+offset_bottom = 837.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bhg1x")
+
+[node name="Label" type="Label" parent="TextureRect/TextureRect" unique_id=452575946]
+layout_mode = 0
+offset_left = 217.0
+offset_right = 1364.0
+offset_bottom = 139.0
+theme = ExtResource("3_t1wt1")
+theme_override_colors/font_color = Color(0.30588236, 0.4, 0.4745098, 1)
+theme_override_font_sizes/font_size = 62
+text = "2/5 House Ruined but resonably priced"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TextureRect/TextureRect" unique_id=486187798]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 182.0
+offset_right = 1364.0
+offset_bottom = 748.0
+theme = ExtResource("3_t1wt1")
+theme_override_colors/font_color = Color(0.30588236, 0.4, 0.4745098, 1)
+theme_override_font_sizes/font_size = 45
+text = "Where do I even start? First of all I asked for one shelf to be installed. Instead this bug installed tons! It's as if it was using the shelves to navigate my living room? Next it BLEW UP the two ceiling lights and the poster I asked them to remove and then they didn't even install new ones. What am I meant to do? My living room is pitch black AND my poster is ruined. Additionally they just left the ruined poster and the two ceiling lights around the place. Was cheap though so might use again."
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="TextureRect" unique_id=2037428434]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1821.0
+offset_top = 24.0
+offset_right = -19.0
+offset_bottom = -976.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_t1wt1")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_vxw56")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3mtm4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t1wt1")
+text = "X"
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=764547141]
+transparent_bg = true
+
+[node name="DrillBug" parent="SubViewport" unique_id=272221402 instance=ExtResource("5_x6emu")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.05639243, 0.02278497, -0.021234222)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/DrillBug" unique_id=1335625236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06093685, 0.0023369268, -0.032917276)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="Drill" parent="SubViewport/DrillBug/MeshInstance3D" unique_id=530906837 instance=ExtResource("8_6of5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0001491569, -0.004918603, -0.0015530623)
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="SubViewport/DrillBug" unique_id=149017241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.061, 0.002, -0.033)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewport/DrillBug" unique_id=155935596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05623739, 0.028006818, -0.0345956)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="Hammer" parent="SubViewport/DrillBug/MeshInstance3D2" unique_id=120685095 instance=ExtResource("9_s5t8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005066879, -0.0023386516, 0.00080613047)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SubViewport/DrillBug" unique_id=1512025391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056, 0.028, -0.035)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="SubViewport/DrillBug" unique_id=376396623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056, -0.028, -0.035)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="SubViewport/DrillBug" unique_id=145953565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056, -0.028, -0.035)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="Node3D2" type="Node3D" parent="SubViewport/DrillBug" unique_id=838424384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03051852, -0.068, 0)
+
+[node name="Right Foot" type="MeshInstance3D" parent="SubViewport/DrillBug/Node3D2" unique_id=2099372652]
+mesh = SubResource("SphereMesh_h4tam")
+
+[node name="Node3D" type="Node3D" parent="SubViewport/DrillBug" unique_id=1929324653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030527119, -0.068, 0)
+
+[node name="Left Foot" type="MeshInstance3D" parent="SubViewport/DrillBug/Node3D" unique_id=252475935]
+mesh = SubResource("SphereMesh_h4tam")
+
+[node name="Orbit" type="Node3D" parent="SubViewport/DrillBug" unique_id=1798830263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0044300593, -0.088765725)
+script = ExtResource("11_pec68")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/DrillBug/Orbit" unique_id=1436450834]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.22574441)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=1900332206]
+transform = Transform3D(0.9135454, -0.17189434, 0.36862862, 0, 0.9063078, 0.42261827, -0.40673664, -0.386081, 0.8279534, 0, 0, 0)
+visible = false
+light_energy = 0.7
+shadow_enabled = true
+directional_shadow_max_distance = 50.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=706817880]
+environment = SubResource("Environment_5pfja")
+
+[node name="SubViewport2" type="SubViewport" parent="." unique_id=306591761]
+transparent_bg = true
+
+[node name="Orbit" type="Node3D" parent="SubViewport2" unique_id=1095796320]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.43562427, -0.4391826, -0.065617085)
+script = ExtResource("11_pec68")
+_axis = Vector3(0, 0, 1)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport2/Orbit" unique_id=1687392930]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.22574441)
+
+[node name="DrillBug" parent="SubViewport2" unique_id=27731989 instance=ExtResource("5_x6emu")]
+transform = Transform3D(-0.46075895, 0, -0.19416796, 0, 0.5, 0, 0.19416796, 0, -0.46075895, -0.43562427, -0.44139764, -0.021234222)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport2/DrillBug" unique_id=1165440303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06093685, 0.0023369268, -0.032917276)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="Drill" parent="SubViewport2/DrillBug/MeshInstance3D" unique_id=1773741752 instance=ExtResource("8_6of5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0001491569, -0.004918603, -0.0015530623)
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="SubViewport2/DrillBug" unique_id=683898220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.061, 0.002, -0.033)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewport2/DrillBug" unique_id=918560057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05623739, 0.028006818, -0.0345956)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="Hammer" parent="SubViewport2/DrillBug/MeshInstance3D2" unique_id=19496540 instance=ExtResource("9_s5t8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005066879, -0.0023386516, 0.00080613047)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SubViewport2/DrillBug" unique_id=1059586677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056, 0.028, -0.035)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="SubViewport2/DrillBug" unique_id=1649600016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056, -0.028, -0.035)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="SubViewport2/DrillBug" unique_id=1326445153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056, -0.028, -0.035)
+mesh = SubResource("SphereMesh_kpu08")
+
+[node name="Node3D2" type="Node3D" parent="SubViewport2/DrillBug" unique_id=1652481198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03051852, -0.068, 0)
+
+[node name="Right Foot" type="MeshInstance3D" parent="SubViewport2/DrillBug/Node3D2" unique_id=529353608]
+mesh = SubResource("SphereMesh_h4tam")
+
+[node name="Node3D" type="Node3D" parent="SubViewport2/DrillBug" unique_id=1023110084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030527119, -0.068, 0)
+
+[node name="Left Foot" type="MeshInstance3D" parent="SubViewport2/DrillBug/Node3D" unique_id=2080651565]
+mesh = SubResource("SphereMesh_h4tam")
+
+[connection signal="pressed" from="TextureRect/Button" to="TextureRect" method="queue_free"]
