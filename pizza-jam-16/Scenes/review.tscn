@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://n8jgun67r338"]
 
+[ext_resource type="Script" uid="uid://dhnb3bj64xk42" path="res://Scripts/review.gd" id="1_2mae0"]
 [ext_resource type="Texture2D" uid="uid://c08kojktt8ra" path="res://Textures/BugWithADrillStandAlone.png" id="1_dgq0a"]
 [ext_resource type="Texture2D" uid="uid://dnrdfd73twfn6" path="res://Textures/Review.png" id="1_vxw56"]
 [ext_resource type="Texture2D" uid="uid://bhyaqgcw0lolq" path="res://Textures/Kissy.png" id="2_3mtm4"]
@@ -86,6 +87,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2mae0")
+menuPath = "menu"
 
 [node name="Panel" type="Panel" parent="." unique_id=1896124529]
 layout_mode = 1
@@ -107,21 +110,22 @@ texture = SubResource("ViewportTexture_deaqq")
 
 [node name="TextureRect3" type="TextureRect" parent="Panel" unique_id=1448886366]
 layout_mode = 0
-offset_left = -157.99997
-offset_top = -145.0
-offset_right = 354.00003
-offset_bottom = 367.0
+offset_left = 4.000061
+offset_top = 381.0
+offset_right = 516.00006
+offset_bottom = 893.0
 scale = Vector2(1.5200005, 1.5200005)
 texture = SubResource("ViewportTexture_2mae0")
 
 [node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1131045435]
 layout_mode = 0
-offset_left = 317.0
-offset_top = 328.0
-offset_right = 1341.0
-offset_bottom = 1352.0
+offset_left = 46.74619
+offset_top = -17.12474
+offset_right = 751.0275
+offset_bottom = 730.2561
 scale = Vector2(0.76, 0.76)
 texture = ExtResource("1_dgq0a")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="Panel" unique_id=909626989]
 layout_mode = 1
@@ -294,7 +298,7 @@ script = ExtResource("11_pec68")
 _axis = Vector3(0, 0, 1)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport2/Orbit" unique_id=1687392930]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.22574441)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.2630122)
 
 [node name="DrillBug" parent="SubViewport2" unique_id=27731989 instance=ExtResource("5_x6emu")]
 transform = Transform3D(-0.46075895, 0, -0.19416796, 0, 0.5, 0, 0.19416796, 0, -0.46075895, -0.43562427, -0.44139764, -0.021234222)
@@ -341,4 +345,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030527119, -0.068, 0)
 [node name="Left Foot" type="MeshInstance3D" parent="SubViewport2/DrillBug/Node3D" unique_id=2080651565]
 mesh = SubResource("SphereMesh_h4tam")
 
+[connection signal="pressed" from="Panel/Button" to="." method="LoadMenu"]
 [connection signal="pressed" from="TextureRect/Button" to="TextureRect" method="queue_free"]

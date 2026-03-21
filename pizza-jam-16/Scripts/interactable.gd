@@ -7,7 +7,7 @@ extends PhysicsBody3D
 
 @export var _interactMessage : String
 
-var _used : bool = false
+@export var _used : bool = false
 
 signal OnInteract()
 
@@ -24,3 +24,6 @@ func GetMessage() -> String :
 	if(_used):
 		return ""
 	return _interactMessage
+	
+func SetUsed(used : bool):
+	_used = used

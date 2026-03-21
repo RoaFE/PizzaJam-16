@@ -7,8 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://b3qf26ky7r7sm" path="res://Scenes/interactable_poster.tscn" id="8_q1yq7"]
 [ext_resource type="Script" uid="uid://bcitgmo03cqog" path="res://Scripts/ObjectiveManager.gd" id="9_848r5"]
 [ext_resource type="Script" uid="uid://clwf4apu0uky1" path="res://Scripts/tutorial_manager.gd" id="9_cykap"]
+[ext_resource type="Script" uid="uid://x16i5dwgcmyi" path="res://Scripts/GenericInterable.gd" id="10_nw1ns"]
 [ext_resource type="Script" uid="uid://bf1eu2qx2f5e1" path="res://Scripts/Objective.gd" id="10_pkgvh"]
 [ext_resource type="Theme" uid="uid://c4ith8oq0rye6" path="res://Resources/Theme.tres" id="11_7wmtr"]
+[ext_resource type="AudioStream" uid="uid://btm5ohg006j6j" path="res://Audio/Casa-Bossa-Nova(chosic.com).mp3" id="11_jjai4"]
+[ext_resource type="AudioStream" uid="uid://8oygqexirl8t" path="res://Audio/Airport-Lounge(chosic.com).mp3" id="12_t7s13"]
+[ext_resource type="AudioStream" uid="uid://b5ot5mih8gi31" path="res://Audio/Bossa-Antigua(chosic.com).mp3" id="13_lddgv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vkfas"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,10 +31,23 @@ ambient_light_color = Color(0.30588236, 0.40392157, 0.46666667, 1)
 ambient_light_energy = 0.2
 tonemap_mode = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8riyq"]
+size = Vector3(1, 1.9824219, 1)
+
+[sub_resource type="Theme" id="Theme_cykap"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_smgrs"]
+shuffle = true
+stream_count = 3
+stream_0 = ExtResource("11_jjai4")
+stream_1 = ExtResource("12_t7s13")
+stream_2 = ExtResource("13_lddgv")
+
 [node name="Level" type="Node" unique_id=586401633 node_paths=PackedStringArray("_objectiveManager")]
 script = ExtResource("1_8riyq")
 _objectiveManager = NodePath("Home/ObjectiveManager")
 menuPath = "menu"
+reviewPath = "review"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=352221207]
 transform = Transform3D(-0.9723699, -0.10525527, 0.20837003, 0, 0.8925858, 0.45087752, -0.23344538, 0.43841973, -0.86792356, 0, 0, 0)
@@ -125,6 +142,36 @@ text = "Press 1 to equip drill"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Home" unique_id=1409251060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.540124, 1.2828047, 2.7713938)
+script = ExtResource("10_nw1ns")
+_oneShot = true
+_interactMessage = "Press E to leave"
+_used = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Home/StaticBody3D" unique_id=2096088548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26093698, 0)
+shape = SubResource("BoxShape3D_8riyq")
+
+[node name="Label" type="Label" parent="." unique_id=891066565]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -524.0
+offset_right = 524.0
+offset_bottom = 495.0
+grow_horizontal = 2
+theme = SubResource("Theme_cykap")
+theme_override_font_sizes/font_size = 55
+text = "Another Job done! Leave using the door"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=703377212]
+stream = SubResource("AudioStreamPlaylist_smgrs")
+autoplay = true
+
 [connection signal="OnAction" from="Home/Char/InputSpot/Drill" to="Home/TutorialManager" method="SetIndex" binds= [2]]
 [connection signal="ToolEquipped" from="Home/Char/InputSpot/Drill" to="Home/TutorialManager" method="SetIndex" binds= [1]]
 [connection signal="ShelfBuilt" from="Home/Char/InputSpot/Hammer" to="Home/ObjectiveManager/Install a Shelf" method="ObjectiveComplete"]
@@ -133,6 +180,9 @@ vertical_alignment = 1
 [connection signal="OnInteract" from="Home/CeilingLight" to="Home/ObjectiveManager/CeilingLight01" method="ObjectiveComplete"]
 [connection signal="OnInteract" from="Home/CeilingLight2" to="Home/ObjectiveManager/CeilingLight02" method="ObjectiveComplete"]
 [connection signal="OnInteract" from="Home/InteractablePoster" to="Home/ObjectiveManager/Poster" method="ObjectiveComplete"]
+[connection signal="AllObjectivesComplete" from="Home/ObjectiveManager" to="Home/StaticBody3D" method="SetUsed" binds= [false]]
+[connection signal="AllObjectivesComplete" from="Home/ObjectiveManager" to="Label" method="set_visible" binds= [true]]
+[connection signal="OnInteract" from="Home/StaticBody3D" to="." method="LoadReview"]
 
 [editable path="Home/Char"]
 [editable path="Home/Char/DrillBug/MeshInstance3D2/Hammer"]

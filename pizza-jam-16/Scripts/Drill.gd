@@ -6,6 +6,8 @@ extends "res://Scripts/tool.gd"
 
 @export var _indicator : Node3D
 
+signal OnDrill()
+
 func Action():
 	super.Action()
 	if(!_equipped):
@@ -19,6 +21,7 @@ func Action():
 		get_tree().root.add_child(hole)
 		hole.transform = align_with_z(hole.transform, result.normal)
 		hole.global_position = result.position;
+		OnDrill.emit()
 
 func _physics_process(_delta: float) -> void:
 	_rayCast.basis = _orientationSpace.basis

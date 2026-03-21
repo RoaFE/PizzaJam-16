@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://car7dxocdhvn1"]
 
-[ext_resource type="Script" uid="uid://b61nlp3b3ae8r" path="res://Scripts/CeilingLightInteractor.gd" id="1_6nxtj"]
+[ext_resource type="Script" uid="uid://x16i5dwgcmyi" path="res://Scripts/GenericInterable.gd" id="1_tuey6"]
 [ext_resource type="PackedScene" uid="uid://das8eynhgf436" path="res://Models/ceiling_light.tscn" id="2_2imi7"]
 [ext_resource type="PackedScene" uid="uid://ra3vsv2xmkcd" path="res://Scenes/Explosion.tscn" id="2_tuey6"]
 [ext_resource type="Material" uid="uid://l3jrt007f1hj" path="res://Materials/Lightbulb.tres" id="3_e3rx2"]
@@ -14,14 +14,9 @@ radius = 0.22558594
 height = 0.19006348
 radius = 0.083984375
 
-[node name="Node3D" type="RigidBody3D" unique_id=1250733903 node_paths=PackedStringArray("_rigidBody", "_light", "_explosion")]
+[node name="Node3D" type="RigidBody3D" unique_id=1250733903]
 freeze = true
-script = ExtResource("1_6nxtj")
-_rigidBody = NodePath(".")
-_light = NodePath("OmniLight3D")
-_explosion = NodePath("Node3D")
-_oneShot = true
-_interactMessage = "Press E to Remove Light"
+script = ExtResource("1_tuey6")
 
 [node name="Node3D" parent="." unique_id=2043461482 instance=ExtResource("2_tuey6")]
 lifetime = 0.8

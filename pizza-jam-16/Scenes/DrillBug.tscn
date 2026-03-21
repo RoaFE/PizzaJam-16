@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cblv7a4eqy7s8" path="res://Models/DrillBug.glb" id="3_50qdq"]
 [ext_resource type="PackedScene" uid="uid://dvap6vxfbbjyc" path="res://Scenes/DrillTool.tscn" id="3_pmbcc"]
 [ext_resource type="PackedScene" uid="uid://bac4ho8vi50nr" path="res://Scenes/HammerTool.tscn" id="4_jrf37"]
+[ext_resource type="AudioStream" uid="uid://bityhwkwp7lk2" path="res://Audio/drill.wav" id="4_lo6li"]
 [ext_resource type="PackedScene" uid="uid://bbopbtejiiyvm" path="res://Scenes/Interactor.tscn" id="5_jrf37"]
+[ext_resource type="AudioStream" uid="uid://0nakfc35hbhf" path="res://Audio/hammering.wav" id="6_pl0a1"]
 [ext_resource type="Script" uid="uid://ql7mxvho6hvt" path="res://Scripts/CharViewController.gd" id="7_h4tam"]
 [ext_resource type="PackedScene" uid="uid://colarqmwbcobc" path="res://Models/Drill.glb" id="7_snn4w"]
 [ext_resource type="Script" uid="uid://buun7dxi23m7v" path="res://Scripts/Hand.gd" id="8_3umyl"]
@@ -15,6 +17,18 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_snn4w"]
 radius = 0.033691406
 height = 0.14711913
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h2ltp"]
+random_pitch = 1.0135496
+random_volume_offset_db = 0.39
+streams_count = 1
+stream_0/stream = ExtResource("4_lo6li")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sj4cg"]
+random_pitch = 1.1752763
+random_volume_offset_db = 2.72
+streams_count = 1
+stream_0/stream = ExtResource("6_pl0a1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4tam"]
 shading_mode = 2
@@ -39,7 +53,7 @@ rings = 4
 [node name="Char" unique_id=2034992785 instance=ExtResource("1_b8i1x")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 2
-collision_mask = 13
+collision_mask = 9
 _speed = 1.6
 _jump_velocity = 2.6
 _push_force = 0.05
@@ -61,8 +75,14 @@ _items = [NodePath("Drill"), NodePath("Hammer")]
 [node name="Drill" parent="InputSpot" index="0" unique_id=690692289 node_paths=PackedStringArray("_orientationSpace") instance=ExtResource("3_pmbcc")]
 _orientationSpace = NodePath("../../Orbit")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="InputSpot/Drill" index="2" unique_id=1377503188]
+stream = SubResource("AudioStreamRandomizer_h2ltp")
+
 [node name="Hammer" parent="InputSpot" index="1" unique_id=1104226804 node_paths=PackedStringArray("_orientationSpace") instance=ExtResource("4_jrf37")]
 _orientationSpace = NodePath("../../Orbit")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="InputSpot/Hammer" index="2" unique_id=911335870]
+stream = SubResource("AudioStreamRandomizer_sj4cg")
 
 [node name="Orbit" parent="." index="3" unique_id=1798830263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
@@ -146,3 +166,5 @@ _playerChar = NodePath("../../..")
 _time = 3.14
 
 [connection signal="PlayerDirectionUpdated" from="." to="DrillBug" method="UpdateTargetDirection"]
+[connection signal="OnDrill" from="InputSpot/Drill" to="InputSpot/Drill/AudioStreamPlayer3D" method="play"]
+[connection signal="ShelfBuilt" from="InputSpot/Hammer" to="InputSpot/Hammer/AudioStreamPlayer3D" method="play"]
